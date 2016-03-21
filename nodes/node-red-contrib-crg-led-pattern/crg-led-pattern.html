@@ -1,0 +1,61 @@
+<script type="text/javascript">
+    RED.nodes.registerType('led-pattern',{
+        category: 'function',
+        color: '#aa3366',
+        defaults: {
+            repeat: {value:"",required:true,validate:RED.validators.number()},
+            pattern: {value:"",required:true,validate:RED.validators.number()},
+            direction: {value:"",required:true,validate:RED.validators.number()},
+            onColor: {value:"",required:true,validate:RED.validators.number()},
+            offColor: {value:"",required:true,validate:RED.validators.number()},
+            onTime: {value:"",required:true,validate:RED.validators.number()},
+            offTime: {value:"",required:true,validate:RED.validators.number()}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.png",
+        label: function() {
+            return this.name||"led-pattern";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="led-pattern">
+    <div class="form-row">
+        <label for="node-input-repeat"><i class="icon-tag"></i>Repeat</label>
+        <input type="text" id="node-input-repeat" placeholder="Repeat">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pattern"><i class="icon-tag"></i>Pattern</label>
+        <input type="text" id="node-input-pattern" placeholder="Pattern">
+    </div>
+    <div class="form-row">
+        <label for="node-input-direction"><i class="icon-tag"></i>Direction</label>
+        <select id="node-input-direction">
+            <optgroup label="Direction">
+              <option name="left" value="0">Left</option>
+              <option name="right" value="1">Right</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-onColor"><i class="icon-tag"></i>On Color</label>
+        <input type="text" id="node-input-onColor" placeholder="On Color">
+    </div>
+    <div class="form-row">
+        <label for="node-input-offColor"><i class="icon-tag"></i>Off Color</label>
+        <input type="text" id="node-input-offColor" placeholder="Off Color">
+    </div>
+    <div class="form-row">
+        <label for="node-input-onTime"><i class="icon-tag"></i>On Time (ms)</label>
+        <input type="text" id="node-input-onTime" placeholder="On Time">
+    </div>
+    <div class="form-row">
+        <label for="node-input-offTime"><i class="icon-tag"></i>Off Time(ms)</label>
+        <input type="text" id="node-input-offTime" placeholder="Off Time">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="led-pattern">
+    <p>Generates JSON object for LED Pattern command</p>
+</script>
