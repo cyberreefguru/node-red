@@ -492,7 +492,46 @@
                     $( "#fade-time-details" ).hide();
                     $( "#fade-increment-details" ).hide();
                     break;
-            	case 0x20:
+            	case 0x1B:
+            	    // wipe(uint16_t repeat, uint32_t duration, uint8_t direction, CRGB onColor, CRGB offColor, uint32_t onTime, uint32_t offTime, uint8_t clearAfter, uint8_t clearEnd);
+					var v = $( "#node-input-direction" ).val();
+                	$( "#node-input-direction" ).empty();
+                	if(v == 0 )
+               		{
+                    	$( "#node-input-direction" ).append('<option name="left" value="0" selected>Left</option>');
+                    	$( "#node-input-direction" ).append('<option name="right" value="1" >Right</option>');
+               		}
+                	else if(v == 1)
+               		{
+                    	$( "#node-input-direction" ).append('<option name="left" value="0">Left</option>');
+                    	$( "#node-input-direction" ).append('<option name="right" value="1" selected>Right</option>');
+               		}
+                	
+                	n = "Wipe";
+		            $( "#fps-details" ).hide();
+		            $( "#hueUpdateTime-details" ).hide();
+		            $( "#intensity-details" ).hide();
+                	$( "#notify-details" ).show();
+                	$( "#relay-details" ).show();
+                	$( "#show-details" ).hide();
+                	$( "#index-details" ).hide();
+                	$( "#pattern-details" ).hide();
+                	$( "#duration-details" ).show();
+                	$( "#repeat-details" ).show();
+                	$( "#direction-details" ).show();
+                    $( "#fade-by-details" ).hide();
+                	$( "#probability-details" ).hide();
+                	$( "#clear-details" ).show();
+                	$( "#color-details" ).show();            	
+                	$( "#on-color-details" ).show();
+                	$( "#off-color-details" ).show();
+                    $( "#on-time-details" ).show();
+                    $( "#off-time-details" ).show();
+                    $( "#bounce-time-details" ).hide();
+                    $( "#fade-time-details" ).hide();
+                    $( "#fade-increment-details" ).hide();
+                    break;
+           	case 0x20:
                 	//void rainbow(uint32_t runTime, uint8_t glitterProbability, CRGB glitterColor)
                 	n = "Rainbow";
 		            $( "#fps-details" ).show();
@@ -804,6 +843,7 @@
               <option name="lightning" 		value="0x18">Lightning</option>
               <option name="stack" 			value="0x19">Stack</option>
               <option name="randomfill" 	value="0x1A">Random Fill</option>
+              <option name="wipe" 			value="0x1B">Wipe</option>
               <option name="rainbow" 		value="0x20">Rainbow</option>
               <option name="rainbow_fade" 	value="0x21">Fading Rainbow</option>
               <option name="confetti" 		value="0x22">Confetti</option>
